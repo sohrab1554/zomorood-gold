@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>زمرد گلد | خانه‌ی طلا و جواهرات فاخر</title>
+<meta name="description" content="زمرد گلد - خرید آنلاین طلا و جواهرات دست‌ساز با قیمت لحظه‌ای، ضمانت اصالت و گواهی خلوص">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== SPLASH / LOADING ===================== -->
+<div id="loader" class="loader">
+  <div class="loader-emblem">
+    <svg viewBox="0 0 120 120" class="emblem-svg">
+      <circle class="emblem-ring outer" cx="60" cy="60" r="52"></circle>
+      <circle class="emblem-ring inner" cx="60" cy="60" r="40"></circle>
+      <path class="emblem-gem" d="M60 32 L84 52 L74 88 L46 88 L36 52 Z"></path>
+      <path class="emblem-gem-line" d="M60 32 L60 88 M36 52 L84 52 M46 88 L84 52 M74 88 L36 52"></path>
+    </svg>
+  </div>
+  <p class="loader-brand">زمرد <em>گلد</em></p>
+  <p class="loader-text" data-i18n="loaderText">در حال آماده‌سازی گنجینه شما...</p>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<canvas id="particles"></canvas>
+
+<!-- ===================== TOP MARQUEE ===================== -->
+<div class="marquee-bar">
+  <div class="marquee-track" id="marqueeTrack">
+    <span data-i18n="marquee">✨ زمرد گلد؛ خلوص، اعتماد و درخشش در هر قیراط — ارسال سریع و ضمانت اصالت کالا ✦ گارانتی بازخرید و تعویض ✦ مشاوره رایگان انتخاب جواهر ✦ گواهی خلوص همراه هر سفارش ✨</span>
+    <span data-i18n="marquee" aria-hidden="true">✨ زمرد گلد؛ خلوص، اعتماد و درخشش در هر قیراط — ارسال سریع و ضمانت اصالت کالا ✦ گارانتی بازخرید و تعویض ✦ مشاوره رایگان انتخاب جواهر ✦ گواهی خلوص همراه هر سفارش ✨</span>
+  </div>
+</div>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <svg viewBox="0 0 44 44" class="brand-mark">
+        <circle cx="22" cy="22" r="19"></circle>
+        <path d="M22 9 L33 19 L29 34 L15 34 L11 19 Z"></path>
+      </svg>
+      <span class="brand-text">زمرد <em>گلد</em></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-i18n="navHome">خانه</a>
+      <a href="#categories" class="nav-link" data-i18n="navCategories">دسته‌بندی</a>
+      <a href="#products" class="nav-link" data-i18n="navProducts">محصولات</a>
+      <a href="#gallery" class="nav-link" data-i18n="navGallery">گالری</a>
+      <a href="#tools" class="nav-link" data-i18n="navTools">ابزار طلا</a>
+      <a href="#verify" class="nav-link" data-i18n="navVerify">استعلام اصالت</a>
+      <a href="#about" class="nav-link" data-i18n="navAbout">درباره ما</a>
+      <a href="#blog" class="nav-link" data-i18n="navBlog">مجله طلا</a>
+      <a href="#support" class="nav-link" data-i18n="navSupport">پشتیبانی</a>
+      <a href="#contact" class="nav-link" data-i18n="navContact">ارتباط با ما</a>
+    </nav>
+
+    <div class="nav-tools">
+      <div class="gold-price-chip" id="goldPriceChip" title="قیمت لحظه‌ای هر گرم طلای ۱۸ عیار">
+        <span class="chip-dot"></span>
+        <span class="chip-label" data-i18n="goldPriceLabel">۱۸ عیار</span>
+        <strong id="goldPriceValue">—</strong>
+        <span class="chip-trend" id="goldTrend"></span>
+      </div>
+
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="fa">FA</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">AR</button>
+      </div>
+
+      <button id="themeToggle" class="icon-btn" aria-label="تغییر حالت روز و شب">
+        <svg class="theme-icon icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><g stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="23"></line><line x1="1" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="23" y2="12"></line><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"></line><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"></line><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"></line><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"></line></g></svg>
+        <svg class="theme-icon icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"></path></svg>
+      </button>
+
+      <button class="icon-btn" id="openAuth" aria-label="ورود / ثبت‌نام">
+        <svg viewBox="0 0 24 24" class="theme-icon fill"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5Zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5Z"></path></svg>
+      </button>
+
+      <button class="icon-btn cart-btn" id="openCart" aria-label="سبد خرید">
+        <svg viewBox="0 0 24 24" class="theme-icon"><path d="M6 6h15l-1.5 9h-12z" fill="none"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2" fill="none"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <button class="burger" id="burgerBtn" aria-label="منو"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow"><span class="eyebrow-line"></span><span data-i18n="heroEyebrow">درخشش اصیل، اعتماد ماندگار</span></p>
+    <h1 class="hero-title">
+      <span data-i18n="heroTitle1">جواهری که</span>
+      <em data-i18n="heroTitle2">داستان شما</em>
+      <span data-i18n="heroTitle3">را روایت می‌کند</span>
+    </h1>
+    <p class="hero-desc" data-i18n="heroDesc">زمرد گلد؛ گزیده‌ای از خالص‌ترین طلا و جواهرات دست‌ساز، با قیمت شفاف و لحظه‌ای، تحویل درب منزل و ضمانت اصالت کالا همراه با گواهی خلوص.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn btn-gold" data-i18n="heroBtn1">مشاهده محصولات</a>
+      <a href="#contact" class="btn btn-ghost" data-i18n="heroBtn2">مشاوره رایگان</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong data-count="18">۱۸</strong><span data-i18n="statYears">سال تجربه</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><strong data-count="40000">۴۰٬۰۰۰</strong><span data-i18n="statClients">مشتری راضی</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><strong>۱۰۰٪</strong><span data-i18n="statGuarantee">ضمانت اصالت</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-ring-deco"></div>
+    <svg viewBox="0 0 340 340" class="hero-gem">
+      <defs>
+        <linearGradient id="gemGrad1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#2F9E7A"/><stop offset="100%" stop-color="#0d4433"/>
+        </linearGradient>
+        <linearGradient id="gemGrad2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#E8C77E"/><stop offset="100%" stop-color="#b0822f"/>
+        </linearGradient>
+      </defs>
+      <polygon class="gem-face" fill="url(#gemGrad1)" points="170,26 276,116 232,312 108,312 64,116"></polygon>
+      <polygon class="gem-face" fill="url(#gemGrad2)" points="170,26 276,116 170,160 64,116"></polygon>
+      <polygon class="gem-face" fill="url(#gemGrad1)" opacity="0.85" points="170,160 276,116 232,312 170,312"></polygon>
+      <polygon class="gem-face" fill="url(#gemGrad2)" opacity="0.7" points="170,160 64,116 108,312 170,312"></polygon>
+      <path class="gem-sparkle" d="M170 26 L170 160 M64 116 L276 116 M108 312 L276 116 M232 312 L64 116"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ===================== TRUST BAR ===================== -->
+<section class="trust-bar" id="trustBar"></section>
+
+<!-- ===================== CATEGORIES ===================== -->
+<section class="categories" id="categories">
+  <div class="section-head center">
+    <p class="section-eyebrow" data-i18n="categoriesEyebrow">مجموعه‌ها</p>
+    <h2 class="section-title" data-i18n="categoriesTitle">دسته‌بندی محصولات</h2>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<!-- ===================== PRODUCTS ===================== -->
+<section class="products" id="products">
+  <div class="section-head">
+    <div>
+      <p class="section-eyebrow" data-i18n="productsEyebrow">ویترین</p>
+      <h2 class="section-title" data-i18n="productsTitle">محصولات زمرد گلد</h2>
+      <p class="section-sub" data-i18n="productsSub">قیمت‌ها بر اساس نرخ لحظه‌ای طلا و اجرت ساخت، به‌صورت خودکار محاسبه می‌شود.</p>
+    </div>
+    <div class="sort-box">
+      <label data-i18n="sortLabel">مرتب‌سازی:</label>
+      <select id="sortSelect">
+        <option value="default" data-i18n="sortDefault">پیش‌فرض</option>
+        <option value="priceAsc" data-i18n="sortPriceAsc">ارزان‌ترین</option>
+        <option value="priceDesc" data-i18n="sortPriceDesc">گران‌ترین</option>
+        <option value="weightDesc" data-i18n="sortWeight">وزن بیشتر</option>
+      </select>
+    </div>
+  </div>
+  <div class="filter-bar" id="filterBar"></div>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section class="gallery" id="gallery">
+  <div class="section-head center">
+    <p class="section-eyebrow" data-i18n="galleryEyebrow">لحظه‌های درخشان</p>
+    <h2 class="section-title" data-i18n="galleryTitle">گالری زمرد گلد</h2>
+  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<!-- ===================== GOLD TOOLS ===================== -->
+<section class="tools" id="tools">
+  <div class="section-head center">
+    <p class="section-eyebrow" data-i18n="toolsEyebrow">ابزارهای هوشمند</p>
+    <h2 class="section-title" data-i18n="toolsTitle">ابزار طلای زمرد</h2>
+    <p class="section-sub" data-i18n="toolsSub">قیمت لحظه‌ای، ماشین‌حساب طلا و تخمین بازخرید؛ همه در یک جا.</p>
+  </div>
+  <div class="tools-grid">
+    <!-- price chart -->
+    <div class="glass-card tool-card price-tool">
+      <div class="tool-head">
+        <div>
+          <h3 data-i18n="chartTitle">روند قیمت طلا</h3>
+          <p class="tool-note" data-i18n="chartNote">هر گرم طلای ۱۸ عیار — ۷ روز اخیر</p>
+        </div>
+        <div class="price-now">
+          <strong id="chartPriceNow">—</strong>
+          <span id="chartTrend" class="chip-trend"></span>
+        </div>
+      </div>
+      <svg id="priceChart" class="price-chart" viewBox="0 0 520 200" preserveAspectRatio="none"></svg>
+      <div class="chart-days" id="chartDays"></div>
+    </div>
+
+    <!-- gold calculator -->
+    <div class="glass-card tool-card">
+      <h3 data-i18n="calcTitle">ماشین‌حساب طلا</h3>
+      <p class="tool-note" data-i18n="calcNote">وزن و عیار را وارد کنید تا قیمت تقریبی را ببینید.</p>
+      <label data-i18n="calcWeight">وزن (گرم)</label>
+      <input type="number" id="calcWeight" min="0" step="0.01" value="1">
+      <label data-i18n="calcKarat">عیار</label>
+      <select id="calcKarat">
+        <option value="18">18</option><option value="21">21</option><option value="24">24</option>
+      </select>
+      <label data-i18n="calcWage">اجرت (%)</label>
+      <input type="number" id="calcWage" min="0" step="1" value="15">
+      <div class="calc-result">
+        <span data-i18n="calcTotal">قیمت تقریبی:</span>
+        <strong id="calcResult">—</strong>
+      </div>
+    </div>
+
+    <!-- buy-back estimator -->
+    <div class="glass-card tool-card">
+      <h3 data-i18n="buybackTitle">محاسبه‌گر بازخرید</h3>
+      <p class="tool-note" data-i18n="buybackNote">طلای شما امروز چقدر می‌ارزد؟ (تخمینی)</p>
+      <label data-i18n="buybackWeight">وزن طلای شما (گرم)</label>
+      <input type="number" id="bbWeight" min="0" step="0.01" value="5">
+      <label data-i18n="buybackKarat">عیار</label>
+      <select id="bbKarat">
+        <option value="18">18</option><option value="21">21</option><option value="24">24</option>
+      </select>
+      <div class="calc-result buyback">
+        <span data-i18n="buybackValue">ارزش بازخرید:</span>
+        <strong id="bbResult">—</strong>
+      </div>
+      <p class="buyback-fine" data-i18n="buybackFine">* مبلغ نهایی پس از کارشناسی حضوری تعیین می‌شود.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUTHENTICITY VERIFY ===================== -->
+<section class="verify" id="verify">
+  <div class="verify-wrap glass-card">
+    <div class="verify-left">
+      <p class="section-eyebrow" data-i18n="verifyEyebrow">اصالت تضمین‌شده</p>
+      <h2 class="section-title" data-i18n="verifyTitle">استعلام اصالت کالا</h2>
+      <p class="verify-intro" data-i18n="verifyIntro">هر قطعه‌ی زمرد گلد یک شماره سریال یکتا و گواهی اصالت دیجیتال دارد. شماره سریال روی فاکتور یا کد QR گواهی را وارد کنید تا اصالت آن را ببینید.</p>
+      <form id="verifyForm" class="verify-form">
+        <input type="text" id="verifyInput" placeholder="مثال: ZG-18-0007-XXXX" data-i18n-ph="verifyPh" required>
+        <button type="submit" class="btn btn-gold" data-i18n="verifyBtn">استعلام</button>
+      </form>
+      <p class="verify-hint" data-i18n="verifyHint">نمونه برای تست: روی هر محصول دکمه‌ی «گواهی اصالت» را بزنید تا سریال آن را ببینید.</p>
+      <div id="verifyResult" class="verify-result"></div>
+    </div>
+    <div class="verify-right">
+      <div class="verify-badge-grid" id="trustBadges"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT / BRAND STORY ===================== -->
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-badge">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none"/><path d="M50 20 L68 38 L60 74 L40 74 L32 38 Z"/></svg>
+      <span data-i18n="aboutBadge">از ۱۳۸۵</span>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="section-eyebrow" data-i18n="aboutEyebrow">داستان برند</p>
+    <h2 class="section-title" data-i18n="aboutTitle">میراثی از خلوص و هنر</h2>
+    <p class="about-text" data-i18n="aboutText1">زمرد گلد از دل یک کارگاه کوچک زرگری در بازار قدیمی آغاز شد؛ جایی که هر قطعه با دست و با عشق ساخته می‌شد. امروز پس از بیش از یک دهه، همان اصالت را با فناوری روز و قیمت‌گذاری کاملاً شفاف به خانه‌ی شما می‌آوریم.</p>
+    <p class="about-text" data-i18n="aboutText2">باور ما ساده است: طلا فقط فلز نیست، حافظه‌ی لحظه‌هاست. برای همین روی هر قطعه گواهی خلوص و اصالت می‌گذاریم و ضمانت بازخرید می‌دهیم.</p>
+    <div class="about-features" id="aboutFeatures"></div>
+  </div>
+</section>
+
+<!-- ===================== BUYING GUIDE ===================== -->
+<section class="guide" id="guide">
+  <div class="section-head center">
+    <p class="section-eyebrow" data-i18n="guideEyebrow">راهنمای خرید</p>
+    <h2 class="section-title" data-i18n="guideTitle">چگونه طلای درست را انتخاب کنیم؟</h2>
+  </div>
+  <div class="guide-grid" id="guideGrid"></div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="testimonials" id="testimonials">
+  <div class="section-head center">
+    <p class="section-eyebrow" data-i18n="testiEyebrow">اعتماد شما</p>
+    <h2 class="section-title" data-i18n="testiTitle">نظرات مشتریان</h2>
+  </div>
+  <div class="testi-grid" id="testiGrid"></div>
+</section>
+
+<!-- ===================== BLOG / MAGAZINE ===================== -->
+<section class="blog" id="blog">
+  <div class="section-head">
+    <div>
+      <p class="section-eyebrow" data-i18n="blogEyebrow">مجله طلا</p>
+      <h2 class="section-title" data-i18n="blogTitle">تازه‌ترین مقالات</h2>
+    </div>
+  </div>
+  <div class="blog-grid" id="blogGrid"></div>
+</section>
+
+<!-- ===================== SUPPORT ===================== -->
+<section class="support" id="support">
+  <div class="section-head center">
+    <p class="section-eyebrow" data-i18n="supportEyebrow">در کنار شما</p>
+    <h2 class="section-title" data-i18n="supportTitle">پشتیبانی</h2>
+  </div>
+  <div class="support-grid" id="supportGrid"></div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <p class="section-eyebrow" data-i18n="contactEyebrow">گفتگو با ما</p>
+      <h2 class="section-title" data-i18n="contactTitle">ارتباط با ما</h2>
+      <p class="contact-intro" data-i18n="contactIntro">سوالی دارید یا به مشاوره نیاز دارید؟ فرم را پر کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند.</p>
+      <div class="contact-info">
+        <p><span class="ci-icon">◈</span> <strong data-i18n="contactAddrLabel">آدرس:</strong> <span data-i18n="contactAddr">تهران، خیابان طلافروشان، پاساژ زمرد</span></p>
+        <p><span class="ci-icon">◈</span> <strong data-i18n="contactEmailLabel">ایمیل:</strong> <span dir="ltr">info@zomorodgold.com</span></p>
+        <p><span class="ci-icon">◈</span> <strong data-i18n="contactPhoneLabel">تلفن:</strong> <span dir="ltr">021-9100-XXXX</span></p>
+      </div>
+      <div class="cta-row">
+        <button class="btn btn-ghost" id="openCoworker" data-i18n="coworkerBtn">ورود همکاران</button>
+        <button class="btn btn-ghost" id="openManager" data-i18n="managerBtn">ورود مدیریت</button>
+      </div>
+    </div>
+    <form class="glass-card contact-form" id="contactForm">
+      <input type="text" placeholder="نام و نام خانوادگی" data-i18n-ph="contactName" required>
+      <input type="tel" placeholder="شماره تماس" data-i18n-ph="contactPhone" required>
+      <textarea rows="4" placeholder="پیام شما" data-i18n-ph="contactMsg" required></textarea>
+      <button type="submit" class="btn btn-gold" data-i18n="contactSend">ارسال پیام</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="newsletter">
+  <div class="news-card">
+    <h3 data-i18n="newsTitle">از تخفیف‌ها و کالکشن‌های جدید باخبر شوید</h3>
+    <p data-i18n="newsDesc">ایمیل خود را وارد کنید تا اولین نفری باشید که از پیشنهادهای ویژه مطلع می‌شود.</p>
+    <form class="news-form" id="newsForm">
+      <input type="email" placeholder="ایمیل شما" data-i18n-ph="newsPh" required>
+      <button type="submit" class="btn btn-gold" data-i18n="newsBtn">عضویت</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col brand-col">
+      <a href="#home" class="brand">
+        <svg viewBox="0 0 44 44" class="brand-mark"><circle cx="22" cy="22" r="19"></circle><path d="M22 9 L33 19 L29 34 L15 34 L11 19 Z"></path></svg>
+        <span class="brand-text">زمرد <em>گلد</em></span>
+      </a>
+      <p class="footer-about" data-i18n="footerAbout">خانه‌ی طلا و جواهرات فاخر، با ضمانت اصالت و گواهی خلوص همراه هر سفارش.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footerLinks">دسترسی سریع</h4>
+      <a href="#products" data-i18n="navProducts">محصولات</a>
+      <a href="#about" data-i18n="navAbout">درباره ما</a>
+      <a href="#blog" data-i18n="navBlog">مجله طلا</a>
+      <a href="#contact" data-i18n="navContact">ارتباط با ما</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footerHelp">پشتیبانی</h4>
+      <a href="#support" data-i18n="footerFaq">سوالات متداول</a>
+      <a href="#support" data-i18n="footerShipping">ارسال و مرجوعی</a>
+      <a href="#support" data-i18n="footerWarranty">گارانتی و بازخرید</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footerSocial">ما را دنبال کنید</h4>
+      <div class="socials">
+        <a href="#" aria-label="instagram" class="soc">◈</a>
+        <a href="#" aria-label="telegram" class="soc">◇</a>
+        <a href="#" aria-label="whatsapp" class="soc">✦</a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-copy" data-i18n="footerText">© تمامی حقوق برای زمرد گلد محفوظ است.</p>
+</footer>
+
+<!-- ===================== MODAL: PRODUCT DETAIL ===================== -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal glass-card product-modal">
+    <button class="modal-close" data-close>×</button>
+    <div id="productModalBody"></div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: CERTIFICATE ===================== -->
+<div class="modal-overlay" id="certModal">
+  <div class="modal glass-card cert-modal">
+    <button class="modal-close" data-close>×</button>
+    <div id="certBody"></div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: COMPARE ===================== -->
+<div class="modal-overlay" id="compareModal">
+  <div class="modal glass-card wide-modal">
+    <button class="modal-close" data-close>×</button>
+    <h3 data-i18n="compareTitle">مقایسه محصولات</h3>
+    <div id="compareBody" class="compare-body"></div>
+  </div>
+</div>
+
+<!-- ===================== COMPARE TRAY ===================== -->
+<div class="compare-tray" id="compareTray">
+  <span class="tray-label" data-i18n="compareTray">مقایسه:</span>
+  <div class="tray-items" id="trayItems"></div>
+  <button class="btn btn-gold tray-btn" id="openCompare" data-i18n="compareOpen">مقایسه کن</button>
+  <button class="tray-clear" id="clearCompare" aria-label="clear">×</button>
+</div>
+
+<!-- ===================== MODAL: CART ===================== -->
+<div class="modal-overlay" id="cartModal">
+  <div class="modal glass-card">
+    <button class="modal-close" data-close>×</button>
+    <h3 data-i18n="cartTitle">سبد خرید</h3>
+    <div id="cartBody"></div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: AUTH ===================== -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal glass-card auth-modal">
+    <button class="modal-close" data-close>×</button>
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="login" data-i18n="loginTab">ورود</button>
+      <button class="tab-btn" data-tab="signup" data-i18n="signupTab">ثبت‌نام</button>
+    </div>
+    <form class="tab-panel active" id="loginForm" data-tab-panel="login">
+      <input type="text" placeholder="شماره موبایل" data-i18n-ph="phInputPhone" required>
+      <input type="password" placeholder="رمز عبور" data-i18n-ph="phInputPass" required>
+      <button type="submit" class="btn btn-gold" data-i18n="loginBtn">ورود به حساب</button>
+    </form>
+    <form class="tab-panel" id="signupForm" data-tab-panel="signup">
+      <input type="text" placeholder="نام و نام خانوادگی" data-i18n-ph="phInputFullname" required>
+      <input type="text" placeholder="شماره موبایل" data-i18n-ph="phInputPhone" required>
+      <input type="password" placeholder="رمز عبور" data-i18n-ph="phInputPass" required>
+      <button type="submit" class="btn btn-gold" data-i18n="signupBtn">ایجاد حساب</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== MODAL: COWORKER ===================== -->
+<div class="modal-overlay" id="coworkerModal">
+  <div class="modal glass-card">
+    <button class="modal-close" data-close>×</button>
+    <div id="coworkerStepRegister">
+      <h3 data-i18n="coworkerRegTitle">فرم ثبت‌نام همکاران</h3>
+      <p class="modal-note" data-i18n="coworkerRegNote">پس از تکمیل فرم، درخواست شما برای مدیر ارسال می‌شود و پس از تایید، امکان ورود به پنل همکاری فراهم می‌گردد.</p>
+      <form id="coworkerRegForm">
+        <input type="text" id="cwFirstName" placeholder="نام" data-i18n-ph="phFirstName" required>
+        <input type="text" id="cwLastName" placeholder="نام خانوادگی" data-i18n-ph="phLastName" required>
+        <input type="text" id="cwNationalCode" placeholder="کد ملی" data-i18n-ph="phNationalCode" required maxlength="10">
+        <input type="tel" id="cwPhone" placeholder="شماره تماس" data-i18n-ph="phInputPhone" required>
+        <button type="submit" class="btn btn-gold" data-i18n="coworkerSubmit">ارسال درخواست</button>
+      </form>
+    </div>
+    <div id="coworkerStepPending" class="hidden">
+      <h3 data-i18n="coworkerPendingTitle">درخواست شما ثبت شد</h3>
+      <p class="modal-note" data-i18n="coworkerPendingNote">درخواست همکاری شما در انتظار تایید مدیر است. پس از تایید می‌توانید با شماره تماس و کد ملی وارد پنل همکاری شوید.</p>
+    </div>
+    <div id="coworkerStepLogin" class="hidden">
+      <h3 data-i18n="coworkerLoginTitle">ورود به پنل همکاری</h3>
+      <form id="coworkerLoginForm">
+        <input type="tel" id="cwLoginPhone" placeholder="شماره تماس" data-i18n-ph="phInputPhone" required>
+        <input type="text" id="cwLoginCode" placeholder="کد ملی" data-i18n-ph="phNationalCode" required>
+        <button type="submit" class="btn btn-gold" data-i18n="coworkerLoginBtn">ورود</button>
+      </form>
+      <button class="link-arrow" id="showCoworkerRegister" data-i18n="coworkerNoAccount">هنوز ثبت‌نام نکرده‌اید؟ ثبت‌نام</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: MANAGER LOGIN ===================== -->
+<div class="modal-overlay" id="managerModal">
+  <div class="modal glass-card">
+    <button class="modal-close" data-close>×</button>
+    <h3 data-i18n="managerLoginTitle">ورود مدیریت</h3>
+    <p class="modal-note" data-i18n="managerLoginNote">این بخش صرفاً برای مدیر سایت است.</p>
+    <form id="managerLoginForm">
+      <input type="text" id="managerUser" placeholder="نام کاربری" data-i18n-ph="phUsername" required>
+      <input type="password" id="managerPass" placeholder="رمز عبور شخصی" data-i18n-ph="phInputPass" required>
+      <button type="submit" class="btn btn-gold" data-i18n="managerLoginBtn">ورود به داشبورد مدیریت</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== MANAGER DASHBOARD ===================== -->
+<div class="modal-overlay" id="managerDashModal">
+  <div class="modal glass-card wide-modal">
+    <button class="modal-close" data-close>×</button>
+    <h3 data-i18n="managerDashTitle">داشبورد مدیریت</h3>
+    <div class="dash-grid">
+      <div>
+        <h4 data-i18n="pendingAdmins">درخواست‌های دسترسی ادمین</h4>
+        <div id="pendingAdminList" class="pending-list"></div>
+      </div>
+      <div>
+        <h4 data-i18n="pendingCoworkers">درخواست‌های همکاری</h4>
+        <div id="pendingCoworkerList" class="pending-list"></div>
+      </div>
+    </div>
+    <div class="dash-actions">
+      <button class="btn btn-ghost" id="openAdminLoginFromManager" data-i18n="goToAdminLogin">ورود به پنل ادمین</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: ADMIN LOGIN ===================== -->
+<div class="modal-overlay" id="adminLoginModal">
+  <div class="modal glass-card">
+    <button class="modal-close" data-close>×</button>
+    <h3 data-i18n="adminLoginTitle">ورود پنل ادمین</h3>
+    <p class="modal-note" data-i18n="adminLoginNote">ورود به این پنل نیازمند تایید مدیر است.</p>
+    <form id="adminLoginForm">
+      <input type="text" id="adminUser" placeholder="نام کاربری ادمین" data-i18n-ph="phUsername" required>
+      <input type="password" id="adminPass" placeholder="رمز عبور" data-i18n-ph="phInputPass" required>
+      <button type="submit" class="btn btn-gold" data-i18n="adminLoginBtn">ورود</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===================== ADMIN PANEL (CMS) ===================== -->
+<div class="modal-overlay" id="adminPanelModal">
+  <div class="modal glass-card wide-modal">
+    <button class="modal-close" data-close>×</button>
+    <h3 data-i18n="adminPanelTitle">پنل مدیریت محتوا</h3>
+    <p class="modal-note" data-i18n="adminPanelNote">ویرایش قیمت پایه طلا، درصد تخفیف همکاران، متن نوار بالای سایت و تصاویر محصولات.</p>
+    <div class="admin-form">
+      <label data-i18n="adminGoldBase">قیمت هر گرم طلای ۱۸ عیار (تومان)</label>
+      <input type="number" id="adminGoldPrice">
+      <label data-i18n="adminDiscount">درصد تخفیف همکاران</label>
+      <input type="number" id="adminCoworkerDiscount">
+      <label data-i18n="adminMarquee">متن نوار بالای سایت</label>
+      <input type="text" id="adminMarqueeText">
+      <label data-i18n="adminProductImg">آپلود تصویر برای محصول</label>
+      <select id="adminProductSelect"></select>
+      <input type="file" id="adminProductFile" accept="image/*">
+      <button class="btn btn-gold" id="adminSaveBtn" data-i18n="adminSave">ذخیره تغییرات</button>
+    </div>
+    <p class="modal-note" id="adminSavedNote"></p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
